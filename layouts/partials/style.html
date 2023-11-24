@@ -30,6 +30,7 @@
   .title {
     text-decoration: none;
     border: 0;
+      text-align: center;
   }
 
   .title span {
@@ -47,6 +48,24 @@
 
   input {
     font-size: 16px;
+  }
+
+  .toc {
+      width: 270px;
+      top:20%;
+      position: fixed;
+      font-size: 13px;
+
+  }
+
+  .toc a {
+      color: rgba(128, 128, 128, 0.2);
+      text-decoration: none; /* 去掉下划线 */
+  }
+
+  article {
+      padding-left: 300px;
+      max-width: 1080px;
   }
 
   content {
@@ -167,6 +186,17 @@
     .helptext {
       color: #aaa;
     }
+  }
+
+  @media only screen and (max-width: 600px) {
+      .toc{
+          width: auto;
+          position: relative;
+      }
+      article{
+          padding-left: 0;
+      }
+
   }
 
 </style>

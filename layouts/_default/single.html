@@ -2,14 +2,14 @@
 {{ if eq .Type "blog" }}{{ if not .Params.menu }}
 
 {{ if .Params.toc }}
-<aside style="width:200px;position:fixed;">
+<aside class="toc">
   {{ with .TableOfContents }}
   {{ . | markdownify | safeHTML }}
   {{ end }}
 {{ end }}
 </aside>
 
-<div style="padding-left:200px;max-width:1080px">
+<article>
 <h1 style="font-size: 40px;">{{ .Title }}</h1>
 <p>
   <i>
@@ -24,10 +24,8 @@
   <a href="{{ .Permalink }}">#{{ .LinkTitle }}</a>
   {{ end }}
 </p>
-<article>
-  <div>
-    {{ .Content | safeHTML }}
-  </div>
+  <content>
+  {{ .Content | safeHTML }}
+  </content>
 </article>
-</div>
 {{ end }}
