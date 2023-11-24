@@ -1,0 +1,85 @@
+{{ define "main" }}
+{{ if eq .Type "blog" }}{{ if not .Params.menu }}
+<h1 style="font-size: 40px;">{{ .Title }}</h1>
+<p>
+  <i>
+    <time datetime='{{ .Date.Format "2006-01-02" }}' pubdate>
+      {{ .Date.Format (default "02 Jan, 2006" .Site.Params.dateFormat) }}
+    </time>
+  </i>
+</p>
+{{ end }}{{ end }}
+<p>
+  {{ range (.GetTerms "tags") }}
+  <a href="{{ .Permalink }}">#{{ .LinkTitle }}</a>
+  {{ end }}
+</p>
+
+<style>
+
+  article {
+      display: flex !important;
+      flex-direction: row !important;
+  }
+  content{
+    flex: 1;
+    padding: 20px;
+  }
+
+  aside {
+      width: 250px;
+      padding: 20px;
+      position: sticky;
+      top: 20px;
+      background-color: #f8f8f8;
+  }
+
+  h1 {
+      font-size: 40px;
+  }
+
+  h2 {
+      font-size: 24px;
+      margin-bottom: 10px;
+  }
+
+  ul {
+      list-style: none;
+      padding: 0;
+  }
+
+  li {
+      margin-bottom: 5px;
+  }
+
+  a {
+      text-decoration: none;
+      color: #333;
+  }
+</style>
+
+<article>
+  <aside>
+    <h2>Table of Contents</h2>
+    <ul>
+        <li><a href="#section1">Section 1</a></li>
+        <li><a href="#section2">Section 2</a></li>
+        <!-- Add more list items as needed, linking to your sections -->
+    </ul>
+  </aside>
+  {{ if .Params.toc }}
+  {{ with .TableOfContents }}
+  {{ . | markdownify | safeHTML }}
+  {{ end }}
+  <content>
+    {{ .Content | safeHTML }}
+  </content>
+  {{ else }}
+  <content>
+    {{ .Content }}
+  </content>
+  {{ end }}
+</article>
+
+
+{{ end }}

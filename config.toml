@@ -1,0 +1,89 @@
+# Base URL used when generating links to your pages
+# Set to the URL for your site
+baseURL = "https://example.com"
+
+# The name of this wonderful theme ;-).
+# theme = 'hugo-bearblog'
+
+# Basic metadata configuration for your blog.
+title = "Barry Blog"
+author = "Barry Chen"
+copyright = "Copyright © 2023, Barry Chen."
+languageCode = "en-US"
+
+# Generate a nice robots.txt for SEO
+enableRobotsTXT = true
+
+# Generate "Bearblog"-like URLs !only!, see https://bearblog.dev/.
+disableKinds = ["taxonomy"]
+ignoreErrors = ["error-disable-taxonomy"]
+[permalinks]
+  blog = "/:slug/"
+  tags = "/blog/:slug"
+
+[params]
+  # The "description" of your website. This is used in the meta data of your generated html.
+  description = "Hugo + Bear = :heart:"
+
+  # The path to your "favicon". This should be a square (at least 32px x 32px) png-file.
+  # Hint: It's good practise to also put a "favicon.ico"-file into your "static"-folder.
+  favicon = "images/favicon.png"
+
+  # These "images" are used for the structured data templates. This will show up, when
+  # services like Twitter or Slack want to generate a preview of a link to your site.
+  # See https://gohugo.io/templates/internal#twitter-cards and
+  # https://gohugo.io/templates/internal#open-graph.
+  images = ["images/share.png"]
+
+  # Another "title" :-). This one is used as the site_name on the Hugo's internal
+  # opengraph structured data template.
+  # See https://ogp.me/ and https://gohugo.io/templates/internal#open-graph.
+  title = "Hugo ʕ•ᴥ•ʔ Bear"
+
+  # This theme will, by default, inject a made-with-line at the bottom of the page.
+  # You can turn it off, but we would really appreciate if you don’t :-).
+  # hideMadeWithLine = true
+
+  # By default, this theme displays dates with a format like "02 Jan, 2006", but
+  # you can customize it by setting the `dateFormat` param in your site's config
+  # file. See [Hugo's Format function docs](https://gohugo.io/functions/format/)
+  # for details. An example TOML config that uses [ISO
+  # 8601](https://en.wikipedia.org/wiki/ISO_8601) format:
+  # dateFormat = "2006-01-02"
+
+[markup]
+  [markup.goldmark.renderer]
+    unsafe = true
+  [markup.goldmark]
+    [markup.goldmark.extensions]
+        table = true
+      [markup.goldmark.extensions.toc]
+        startLevel = 1
+        endLevel = 4
+        ordered = false
+        skip = false
+        callback = "GitHubMarkdown"
+  [markup.highlight]
+    codeFences = true
+    guessSyntax = true
+    hl_Lines = ""
+    lineNoStart = 1
+    lineNos = true
+    lineNumbersInTable = true
+    noClasses = true
+    tabWidth = 2
+
+# User interface configuration
+[params.ui]
+#  是否开启面包屑导航.
+breadcrumb_disable = true
+# 是否禁用底部About链接
+footer_about_disable = true
+# 是否展示项目logo，位置必须放置在 assets/icons/logo.svg
+navbar_logo = true
+# 在首页，上下滑动页面，顶部导航是否开启半透明
+navbar_translucent_over_cover_disable = true
+# 左侧章节树形目录是否默认折叠状态
+sidebar_menu_compact = true
+# 左侧章节树形目录上是否显示搜索框
+sidebar_search_disable = true
