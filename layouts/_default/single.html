@@ -1,12 +1,14 @@
 {{ define "main" }}
 {{ if eq .Type "blog" }}{{ if not .Params.menu }}
 
-{{ if .Params.toc }}
+
 <aside class="toc">
-  {{ with .TableOfContents }}
-  {{ . | markdownify | safeHTML }}
+  <a href="#siteTitle" style="margin-left: 40px;">top</a>
+  {{ if .Params.toc }}
+    {{ with .TableOfContents }}
+    {{ . | markdownify | safeHTML }}
+    {{ end }}
   {{ end }}
-{{ end }}
 </aside>
 
 <article>

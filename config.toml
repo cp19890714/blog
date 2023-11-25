@@ -58,7 +58,7 @@ ignoreErrors = ["error-disable-taxonomy"]
     [markup.goldmark.extensions]
         table = true
       [markup.goldmark.extensions.toc]
-        startLevel = 1
+        startLevel = 0
         endLevel = 4
         ordered = false
         skip = false

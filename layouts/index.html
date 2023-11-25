@@ -1,6 +1,7 @@
 {{ define "main" }}
 <!-- 指向content/_index.md -->
 {{ .Content }}
+<div class="blog-posts-container">
 <ul class="blog-posts">
     {{ range .Site.RegularPages }}
     <li>
@@ -27,4 +28,5 @@
       {{ end }}
     </div>
   </small>
+</div>
 {{ end }}
